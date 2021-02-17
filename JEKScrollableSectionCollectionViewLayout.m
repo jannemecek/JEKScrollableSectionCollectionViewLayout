@@ -151,6 +151,8 @@ NSString * const JEKCollectionElementKindSectionBackground = @"JEKCollectionElem
 }
 
 - (void)resetScrollPositionInSection:(NSInteger)section {
+    if (section > self.sections.count-1)
+        return;
     self.sections[section].offset = CGPointMake(0, self.sections[section].offset.y);
 }
 
@@ -272,6 +274,9 @@ NSString * const JEKCollectionElementKindSectionBackground = @"JEKCollectionElem
 {
     NSUInteger section = scrollView.tag;
     self.offsetCache[@(section)] = @(-scrollView.contentOffset.x);
+    
+    if (section > self.sections.count-1)
+        return;
 
     JEKScrollableSectionLayoutInvalidationContext *invalidationContext = [JEKScrollableSectionLayoutInvalidationContext new];
     invalidationContext.invalidatedSection = self.sections[section];
