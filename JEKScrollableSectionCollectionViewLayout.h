@@ -35,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL showsSectionBackgrounds;
 extern NSString * const JEKCollectionElementKindSectionBackground;
 
+- (void)resetScrollPositionInSection:(NSInteger)section;
+
 @end
 
 @interface JEKScrollViewConfiguration : NSObject

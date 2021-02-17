@@ -150,6 +150,10 @@ NSString * const JEKCollectionElementKindSectionBackground = @"JEKCollectionElem
     self.contentSize = CGSizeMake(self.collectionView.frame.size.width, yOffset);
 }
 
+- (void)resetScrollPositionInSection:(NSInteger)section {
+    self.sections[section].offset = CGPointMake(0, self.sections[section].offset.y);
+}
+
 - (void)invalidateLayoutWithContext:(JEKScrollableSectionLayoutInvalidationContext *)context
 {
     [super invalidateLayoutWithContext:context];
